@@ -191,6 +191,30 @@ nav {
   background-position: center;
 }
 
+/* Tokyo Image Background */
+.tokyo-image-bg {
+  background: linear-gradient(rgba(90, 68, 53, 0.6), rgba(153, 125, 102, 0.6)),
+    url("/assets/city/tokyo.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+/* Seoul Image Background */
+.seoul-image-bg {
+  background: linear-gradient(rgba(90, 68, 53, 0.6), rgba(153, 125, 102, 0.6)),
+    url("/assets/city/seoul.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+/* Singapore Image Background */
+.singapore-image-bg {
+  background: linear-gradient(rgba(90, 68, 53, 0.6), rgba(153, 125, 102, 0.6)),
+    url("/assets/city/sg.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
 .city-content {
   position: relative;
   z-index: 2;
