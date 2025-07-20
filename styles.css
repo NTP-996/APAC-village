@@ -1,0 +1,429 @@
+:root {
+  --red: #ae3a39;
+  --orange: #e7b155;
+  --brown: #997d66;
+  --dark-brown: #5a4435;
+  --beige: #e3d0ab;
+  --light-beige: #eeede1;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  line-height: 1.6;
+  color: var(--dark-brown);
+  background-color: var(--light-beige);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header */
+header {
+  background: linear-gradient(135deg, var(--red), var(--orange));
+  color: white;
+  padding: 1rem 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: "Creepster", cursive;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.3s ease;
+}
+
+.nav-links a:hover {
+  opacity: 0.8;
+}
+
+/* Hero Section */
+.hero {
+  height: 100vh;
+  background: url("/assets/hero.png");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  margin-top: 80px;
+}
+
+.hero-content h1 {
+  font-family: "Creepster", cursive;
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  max-width: 600px;
+}
+
+.cta-button {
+  display: inline-block;
+  background: var(--orange);
+  color: var(--dark-brown);
+  padding: 1rem 2rem;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(231, 177, 85, 0.4);
+}
+
+/* Overview Section */
+.overview {
+  padding: 5rem 0;
+  background: var(--light-beige);
+}
+
+.overview h2 {
+  font-family: "Creepster", cursive;
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--red);
+}
+
+.overview-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+.overview-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.overview-card:hover {
+  transform: translateY(-5px);
+}
+
+.overview-card h3 {
+  color: var(--red);
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+/* City Sections */
+.city-section {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-bottom: 2rem;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.city-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(90, 68, 53, 0.8), rgba(153, 125, 102, 0.8)),
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect width="1200" height="600" fill="%23997d66"/><text x="600" y="300" text-anchor="middle" font-size="36" fill="%23ffffff" opacity="0.5">CITY IMAGE PLACEHOLDER</text></svg>');
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+
+/* HCM Image Background */
+.hcm-image-bg {
+  background: linear-gradient(rgba(90, 68, 53, 0.6), rgba(153, 125, 102, 0.6)),
+    url("/assets/city/hcm.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+/* Bali Image Background */
+.bali-image-bg {
+  background: linear-gradient(rgba(90, 68, 53, 0.6), rgba(153, 125, 102, 0.6)),
+    url("/assets/city/bali.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.city-content {
+  position: relative;
+  z-index: 2;
+  color: white;
+  padding: 3rem;
+  max-width: 900px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.city-section:nth-child(even) .city-content {
+  margin-left: auto;
+  text-align: right;
+}
+
+/* Ho Chi Minh specific layout */
+.city-section:nth-child(4) .city-content {
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: 4rem;
+  align-items: start;
+  max-width: 1000px;
+}
+
+.city-section:nth-child(4) .luma-calendar-section {
+  position: relative;
+  left: -150px;
+}
+
+.city-section:nth-child(4) .city-info {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Bali specific layout */
+.city-section:nth-child(1) .city-content {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 4rem;
+  align-items: start;
+  max-width: 1000px;
+}
+
+.city-section:nth-child(1) .luma-register-section {
+  position: relative;
+  right: -50px;
+}
+
+.city-section:nth-child(1) .city-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.city-section h3 {
+  font-family: "Creepster", cursive;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: var(--orange);
+}
+
+.city-section h4 {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: var(--beige);
+}
+
+.event-list {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 15px;
+  margin-bottom: 1.5rem;
+}
+
+.event-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.event-item:last-child {
+  border-bottom: none;
+}
+
+.event-date {
+  font-weight: 600;
+  color: var(--orange);
+  min-width: 120px;
+}
+
+.side-events {
+  background: rgba(231, 177, 85, 0.2);
+  padding: 1.5rem;
+  border-radius: 15px;
+  border-left: 4px solid var(--orange);
+}
+
+.side-events h5 {
+  color: var(--orange);
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+/* Luma Calendar Embed */
+.luma-calendar-section {
+  margin-top: 0;
+  width: 100%;
+}
+
+.luma-calendar-section h5 {
+  text-align: left;
+}
+
+.luma-iframe {
+  width: 100%;
+  height: 450px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+/* Luma Registration Section */
+.luma-register-section {
+  margin-top: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.luma-register-section h5 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.luma-checkout--button {
+  background: var(--orange) !important;
+  color: var(--dark-brown) !important;
+  padding: 1rem 2rem !important;
+  border-radius: 50px !important;
+  text-decoration: none !important;
+  font-weight: 600 !important;
+  font-size: 1.1rem !important;
+  border: none !important;
+  cursor: pointer !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+  display: inline-block !important;
+  font-family: "Poppins", sans-serif !important;
+}
+
+.luma-checkout--button:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px rgba(231, 177, 85, 0.4) !important;
+}
+
+/* Footer */
+footer {
+  background: var(--dark-brown);
+  color: var(--light-beige);
+  text-align: center;
+  padding: 3rem 0;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-section h4 {
+  color: var(--orange);
+  margin-bottom: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-content p {
+    font-size: 1.2rem;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .city-section h3 {
+    font-size: 2rem;
+  }
+
+  .city-content {
+    padding: 2rem;
+  }
+
+  .event-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .luma-iframe {
+    height: 400px;
+  }
+
+  .luma-calendar-section {
+    margin-top: 1rem;
+  }
+
+  /* Stack Ho Chi Minh layout on mobile */
+  .city-section:nth-child(4) .city-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  /* Stack Bali layout on mobile */
+  .city-section:nth-child(1) .city-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .city-section:nth-child(1) .luma-register-section {
+    right: 0;
+    margin-top: 1rem;
+  }
+}
