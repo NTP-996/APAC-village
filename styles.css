@@ -74,7 +74,7 @@ nav {
   opacity: 0.8;
 }
 
-/* Hero Section */
+/* Hero Section - Now contains the carousel */
 .hero {
   width: 100%;
   min-height: 100vh;
@@ -90,7 +90,6 @@ nav {
   text-align: center;
   color: white;
   position: relative;
-  backdrop-filter: blur(5px);
   margin-top: 69px;
   padding: 2rem 1rem;
   overflow: hidden;
@@ -110,6 +109,7 @@ nav {
   z-index: -1;
 }
 
+/* Floating date text - positioned absolutely */
 .hero-date {
   font-family: "Inter", sans-serif;
   font-size: clamp(1.5rem, 6vw, 3.5rem);
@@ -117,9 +117,16 @@ nav {
   text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
   letter-spacing: clamp(1px, 0.5vw, 2px);
   color: #9a2b2b;
+  position: absolute;
+  top: clamp(100px, 15vh, 150px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 200;
+  pointer-events: none;
   margin-bottom: 1rem;
 }
 
+/* Floating hero text - positioned absolutely */
 .hero-text {
   margin-top: 2rem;
 }
@@ -207,7 +214,7 @@ nav {
   font-size: clamp(1.2rem, 3vw, 1.5rem);
 }
 
-/* City Sections - Carousel */
+/* City Sections - Carousel now fills entire hero */
 #cities {
   padding: 1rem 0;
   overflow: hidden;
@@ -357,22 +364,6 @@ nav {
   transition: all 0.3s ease;
 }
 
-/* City Logo Overlay */
-.city-logo {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: clamp(51px, 9.6vw, 77px);
-  height: clamp(51px, 9.6vw, 77px);
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  z-index: 10;
-  pointer-events: none;
-  transition: all 0.3s ease;
-}
-
 .indo-flag {
   background-image: url("/assets/logo/indo.svg");
 }
@@ -391,6 +382,82 @@ nav {
 
 .sg-flag {
   background-image: url("/assets/logo/sg.svg");
+}
+
+/* Event Logos for all cities */
+.bali-event-logo {
+  position: absolute;
+  bottom: clamp(30px, 6vh, 60px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: clamp(145px, 30.25vw, 302.5px);
+  height: clamp(72.5px, 14.5vw, 151px);
+  background-image: url("/assets/event/bali.svg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 50;
+  pointer-events: none;
+}
+
+.tokyo-event-logo {
+  position: absolute;
+  bottom: clamp(30px, 6vh, 60px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: clamp(145px, 30.25vw, 302.5px);
+  height: clamp(72.5px, 14.5vw, 151px);
+  background-image: url("/assets/event/jap.svg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 50;
+  pointer-events: none;
+}
+
+.seoul-event-logo {
+  position: absolute;
+  bottom: clamp(30px, 6vh, 60px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: clamp(145px, 30.25vw, 302.5px);
+  height: clamp(72.5px, 14.5vw, 151px);
+  background-image: url("/assets/event/korea.svg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 50;
+  pointer-events: none;
+}
+
+.hcm-event-logo {
+  position: absolute;
+  bottom: clamp(30px, 6vh, 60px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: clamp(145px, 30.25vw, 302.5px);
+  height: clamp(72.5px, 14.5vw, 151px);
+  background-image: url("/assets/event/hcm.svg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 50;
+  pointer-events: none;
+}
+
+.singapore-event-logo {
+  position: absolute;
+  bottom: clamp(30px, 6vh, 60px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: clamp(145px, 30.25vw, 302.5px);
+  height: clamp(72.5px, 14.5vw, 151px);
+  background-image: url("/assets/event/sg.svg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 50;
+  pointer-events: none;
 }
 
 /* City Content */
@@ -432,7 +499,7 @@ nav {
   filter: brightness(1.05);
 }
 
-/* City Background Images */
+/* City Background Images - Semi-transparent to show hero background */
 .city-bg {
   position: absolute;
   top: 0;
@@ -444,6 +511,7 @@ nav {
   background-repeat: no-repeat;
   z-index: 5;
   transition: all 0.3s ease;
+  opacity: 0.8;
 }
 
 .bali-image-bg {
@@ -504,7 +572,6 @@ nav {
 
   .hero {
     margin-top: 60px;
-    padding: 1rem;
     height: calc(100vh - 60px);
     min-height: calc(100vh - 60px);
     max-height: calc(100vh - 60px);
@@ -513,180 +580,18 @@ nav {
   }
 
   .hero-date {
-    margin-bottom: 1rem;
-    font-size: 2rem;
+    top: clamp(80px, 12vh, 120px);
+    font-size: clamp(1.2rem, 5vw, 2rem);
+    padding: 0.3rem 0.8rem;
   }
 
   .hero-text {
-    margin-top: 1rem;
+    bottom: clamp(70px, 10vh, 100px);
   }
 
   .hero-text h1,
   .hero-text h2 {
-    font-size: 2.2rem;
-  }
-
-  #cities {
-    padding: 0.5rem 0;
-    width: 100%;
-    overflow: hidden;
-  }
-
-  .carousel-container {
-    margin: 0;
-    border-radius: 15px;
-    height: 400px;
-    width: 100%;
-    max-width: 100%;
-    overflow: hidden;
-  }
-
-  .carousel-wrapper {
-    border-radius: 15px;
-    height: 400px;
-    width: 100%;
-    overflow: hidden;
-  }
-
-  .carousel-track {
-    height: 400px;
-    width: 500%;
-    overflow: hidden;
-  }
-
-  .carousel-slide {
-    height: 400px;
-    width: 20%;
-    flex: 0 0 20%;
-    overflow: hidden;
-  }
-
-  .city-section {
-    height: 400px;
-    width: 100%;
-    overflow: hidden;
-  }
-
-  .carousel-btn {
-    opacity: 0.9;
-    width: 40px;
-    height: 40px;
-  }
-
-  .carousel-btn svg {
-    width: 20px;
-    height: 20px;
-  }
-
-  .carousel-btn:active {
-    transform: translateY(-50%) scale(0.95);
-  }
-
-  .carousel-btn-prev {
-    left: 15px;
-  }
-
-  .carousel-btn-next {
-    right: 15px;
-  }
-
-  .carousel-dots {
-    bottom: 20px;
-    gap: 10px;
-  }
-
-  .carousel-dot {
-    width: 10px;
-    height: 10px;
-    padding: 10px;
-    min-width: auto;
-    min-height: auto;
-  }
-
-  .overview {
-    padding: 3rem 0;
-  }
-
-  .overview-content {
-    gap: 2rem;
-  }
-}
-
-@media (max-width: 480px) {
-  html,
-  body {
-    overflow-x: hidden;
-    width: 100%;
-    height: 100%;
-  }
-
-  .container {
-    padding: 0 10px;
-    width: 100%;
-    max-width: 100%;
-  }
-
-  header {
-    padding: 0.75rem 0;
-    width: 100%;
-  }
-
-  .hero {
-    margin-top: 55px;
-    padding: 1rem 0.75rem;
-    height: calc(100vh - 55px);
-    min-height: calc(100vh - 55px);
-    max-height: calc(100vh - 55px);
-    width: 100%;
-    overflow: hidden;
-  }
-
-  .hero-date {
-    font-size: 1.8rem;
-  }
-
-  .hero-text h1,
-  .hero-text h2 {
-    font-size: 2rem;
-  }
-
-  #cities {
-    padding: 0.25rem 0;
-    width: 100%;
-    overflow: hidden;
-  }
-
-  .carousel-container {
-    height: 350px;
-    margin: 0;
-    width: 100%;
-    max-width: 100%;
-    overflow: hidden;
-  }
-
-  .carousel-wrapper {
-    height: 350px;
-    width: 100%;
-    overflow: hidden;
-  }
-
-  .carousel-track {
-    height: 350px;
-    width: 500%;
-    overflow: hidden;
-  }
-
-  .carousel-slide {
-    height: 350px;
-    width: 20%;
-    flex: 0 0 20%;
-    overflow: hidden;
-  }
-
-  .city-section {
-    height: 350px;
-    width: 100%;
-    overflow: hidden;
+    font-size: clamp(1.3rem, 5vw, 2rem);
   }
 
   .carousel-btn {
@@ -724,16 +629,17 @@ nav {
   }
 
   .hero-date {
-    font-size: clamp(1.2rem, 5vw, 2.5rem);
+    top: clamp(60px, 8vh, 80px);
+    font-size: clamp(1rem, 4vw, 2rem);
+  }
+
+  .hero-text {
+    bottom: clamp(60px, 8vh, 80px);
   }
 
   .hero-text h1,
   .hero-text h2 {
-    font-size: clamp(1.5rem, 6vw, 2.5rem);
-  }
-
-  .carousel-container {
-    height: clamp(300px, 50vh, 500px);
+    font-size: clamp(1.2rem, 5vw, 2rem);
   }
 }
 
@@ -754,7 +660,8 @@ nav {
   .carousel-btn,
   .carousel-dot,
   .overview-card,
-  .cta-button {
+  .cta-button,
+  .city-bg {
     transition: none;
   }
 
@@ -790,3 +697,92 @@ nav {
     max-width: 1400px;
   }
 }
+    bottom: clamp(80px, 12vh, 120px);
+  }
+
+  .hero-text h1,
+  .hero-text h2 {
+    font-size: clamp(1.5rem, 6vw, 2.2rem);
+  }
+
+  .carousel-btn {
+    opacity: 0.9;
+    width: 40px;
+    height: 40px;
+  }
+
+  .carousel-btn svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .carousel-btn:active {
+    transform: translateY(-50%) scale(0.95);
+  }
+
+  .carousel-btn-prev {
+    left: 15px;
+  }
+
+  .carousel-btn-next {
+    right: 15px;
+  }
+
+  .carousel-dots {
+    bottom: 20px;
+    gap: 10px;
+  }
+
+  .carousel-dot {
+    width: 10px;
+    height: 10px;
+  }
+
+  .city-logo {
+    width: clamp(50px, 10vw, 80px);
+    height: clamp(50px, 10vw, 80px);
+  }
+
+  .overview {
+    padding: 3rem 0;
+  }
+
+  .overview-content {
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  html,
+  body {
+    overflow-x: hidden;
+    width: 100%;
+    height: 100%;
+  }
+
+  .container {
+    padding: 0 10px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  header {
+    padding: 0.75rem 0;
+    width: 100%;
+  }
+
+  .hero {
+    margin-top: 55px;
+    height: calc(100vh - 55px);
+    min-height: calc(100vh - 55px);
+    max-height: calc(100vh - 55px);
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .hero-date {
+    top: clamp(70px, 10vh, 100px);
+    font-size: clamp(1rem, 4vw, 1.8rem);
+  }
+
+  .hero-text {
