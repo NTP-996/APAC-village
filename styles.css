@@ -13,6 +13,13 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+}
+
 body {
   font-family: "Poppins", sans-serif;
   line-height: 1.6;
@@ -24,6 +31,7 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+  width: 100%;
 }
 
 /* Header */
@@ -35,7 +43,6 @@ header {
   width: 100%;
   top: 0;
   z-index: 1000;
-  backdrop-filter: blur(10px);
 }
 
 nav {
@@ -45,9 +52,9 @@ nav {
 }
 
 .logo {
-  font-family: "Creepster", cursive;
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(1.2rem, 4vw, 1.5rem);
+  font-weight: 700;
 }
 
 .nav-links {
@@ -69,27 +76,75 @@ nav {
 
 /* Hero Section */
 .hero {
+  width: 100%;
+  min-height: 100vh;
   height: 100vh;
-  background: url("/assets/hero.png");
+  max-height: 100vh;
+  background: url("/assets/hero.jpg");
   background-size: cover;
   background-position: center;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
   color: white;
-  margin-top: 80px;
+  position: relative;
+  backdrop-filter: blur(5px);
+  margin-top: 69px;
+  padding: 2rem 1rem;
+  overflow: hidden;
 }
 
-.hero-content h1 {
-  font-family: "Creepster", cursive;
-  font-size: 4rem;
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("/assets/hero.jpg");
+  background-size: cover;
+  background-position: center;
+  filter: blur(3px);
+  z-index: -1;
+}
+
+.hero-date {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(1.5rem, 6vw, 3.5rem);
+  font-weight: 600;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+  letter-spacing: clamp(1px, 0.5vw, 2px);
+  color: #9a2b2b;
   margin-bottom: 1rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-text {
+  margin-top: 2rem;
+}
+
+.hero-text h1 {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(2rem, 7vw, 3.5rem);
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+  letter-spacing: clamp(1px, 0.5vw, 2px);
+  color: #9a2b2b;
+}
+
+.hero-text h2 {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(2rem, 7vw, 3.5rem);
+  font-weight: 600;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+  letter-spacing: clamp(1px, 0.5vw, 2px);
+  color: #9a2b2b;
 }
 
 .hero-content p {
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 3vw, 1.5rem);
   margin-bottom: 2rem;
   max-width: 600px;
 }
@@ -102,7 +157,7 @@ nav {
   text-decoration: none;
   border-radius: 50px;
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -118,8 +173,9 @@ nav {
 }
 
 .overview h2 {
-  font-family: "Creepster", cursive;
-  font-size: 3rem;
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
   text-align: center;
   margin-bottom: 2rem;
   color: var(--red);
@@ -127,8 +183,8 @@ nav {
 
 .overview-content {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(2rem, 4vw, 3rem);
   margin-top: 3rem;
 }
 
@@ -148,306 +204,589 @@ nav {
 .overview-card h3 {
   color: var(--red);
   margin-bottom: 1rem;
-  font-size: 1.5rem;
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
 }
 
-/* City Sections */
-.city-section {
-  min-height: 80vh;
-  display: flex;
-  align-items: center;
+/* City Sections - Carousel */
+#cities {
+  padding: 1rem 0;
+  overflow: hidden;
   position: relative;
-  margin-bottom: 2rem;
-  border-radius: 20px;
+  z-index: 10;
+  width: 100%;
+}
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  height: clamp(400px, 60vh, 700px);
+  margin: 0 auto;
+  z-index: 10;
   overflow: hidden;
 }
 
+.carousel-wrapper {
+  overflow: hidden;
+  border-radius: 20px;
+  height: 100%;
+  position: relative;
+  z-index: 10;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 500%;
+  height: 100%;
+  position: relative;
+  z-index: 10;
+  cursor: grab;
+}
+
+.carousel-track:active {
+  cursor: grabbing;
+}
+
+.carousel-slide {
+  flex: 0 0 20%;
+  height: 100%;
+  width: 20%;
+}
+
+.city-section {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* Carousel Navigation Buttons */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #9a2b2b;
+  border: none;
+  border-radius: 50%;
+  width: clamp(40px, 8vw, 50px);
+  height: clamp(40px, 8vw, 50px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: white;
+  transition: all 0.3s ease;
+  z-index: 100;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-btn svg {
+  width: clamp(18px, 4vw, 24px);
+  height: clamp(18px, 4vw, 24px);
+}
+
+.carousel-btn:hover {
+  background: #7a1f1f;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-btn:focus {
+  outline: 2px solid var(--orange);
+  outline-offset: 2px;
+}
+
+.carousel-btn-prev {
+  left: clamp(10px, 3vw, 20px);
+}
+
+.carousel-btn-next {
+  right: clamp(10px, 3vw, 20px);
+}
+
+/* Carousel Dots */
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: clamp(8px, 2vw, 12px);
+  position: absolute;
+  bottom: clamp(20px, 4vh, 30px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+}
+
+.carousel-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.carousel-dot.active,
+.carousel-dot:hover {
+  background: var(--orange);
+  border-color: var(--orange);
+  transform: scale(1.2);
+}
+
+.carousel-dot:focus {
+  outline: 2px solid var(--orange);
+  outline-offset: 2px;
+}
+
+/* City Logo Overlay */
+.city-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(51px, 9.6vw, 77px);
+  height: clamp(51px, 9.6vw, 77px);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 10;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+/* City Logo Overlay */
+.city-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(51px, 9.6vw, 77px);
+  height: clamp(51px, 9.6vw, 77px);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 10;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.indo-flag {
+  background-image: url("/assets/logo/indo.svg");
+}
+
+.japan-flag {
+  background-image: url("/assets/logo/japan.svg");
+}
+
+.korea-flag {
+  background-image: url("/assets/logo/korea.svg");
+}
+
+.vn-flag {
+  background-image: url("/assets/logo/vn.svg");
+}
+
+.sg-flag {
+  background-image: url("/assets/logo/sg.svg");
+}
+
+/* City Content */
+.city-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  min-width: 240px;
+}
+
+/* City Link Overlay */
+.city-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 15;
+  cursor: pointer;
+  text-decoration: none;
+  display: block;
+  transition: all 0.3s ease;
+  pointer-events: auto;
+}
+
+.city-link:hover + .city-bg {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+.city-link:focus {
+  outline: 3px solid var(--orange);
+  outline-offset: -3px;
+}
+
+.city-link:active + .city-bg {
+  transform: scale(1.02);
+  filter: brightness(1.05);
+}
+
+/* City Background Images */
 .city-bg {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(rgba(90, 68, 53, 0.8), rgba(153, 125, 102, 0.8)),
-    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect width="1200" height="600" fill="%23997d66"/><text x="600" y="300" text-anchor="middle" font-size="36" fill="%23ffffff" opacity="0.5">CITY IMAGE PLACEHOLDER</text></svg>');
-  background-size: cover;
-  background-position: center;
-  z-index: 1;
+  background-size: auto 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  z-index: 5;
+  transition: all 0.3s ease;
 }
 
-/* HCM Image Background */
-.hcm-image-bg {
-  background: linear-gradient(rgba(90, 68, 53, 0.6), rgba(153, 125, 102, 0.6)),
-    url("/assets/city/hcm.jpg");
-  background-size: cover;
-  background-position: center;
-}
-
-/* Bali Image Background */
 .bali-image-bg {
-  background: linear-gradient(rgba(90, 68, 53, 0.6), rgba(153, 125, 102, 0.6)),
-    url("/assets/city/bali.jpg");
-  background-size: cover;
-  background-position: center;
+  background: url("/assets/city/bali.svg");
+  background-size: auto 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
-/* Tokyo Image Background */
 .tokyo-image-bg {
-  background: linear-gradient(rgba(90, 68, 53, 0.6), rgba(153, 125, 102, 0.6)),
-    url("/assets/city/tokyo.jpg");
-  background-size: cover;
-  background-position: center;
+  background: url("/assets/city/tokyo.svg");
+  background-size: auto 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
-/* Seoul Image Background */
 .seoul-image-bg {
-  background: linear-gradient(rgba(90, 68, 53, 0.6), rgba(153, 125, 102, 0.6)),
-    url("/assets/city/seoul.jpg");
-  background-size: cover;
-  background-position: center;
+  background: url("/assets/city/seoul.svg");
+  background-size: auto 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
-/* Singapore Image Background */
+.hcm-image-bg {
+  background: url("/assets/city/hcm.svg");
+  background-size: auto 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
 .singapore-image-bg {
-  background: linear-gradient(rgba(90, 68, 53, 0.6), rgba(153, 125, 102, 0.6)),
-    url("/assets/city/sg.jpg");
-  background-size: cover;
-  background-position: center;
+  background: url("/assets/city/sg.svg");
+  background-size: auto 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
-.city-content {
-  position: relative;
-  z-index: 2;
-  color: white;
-  padding: 3rem;
-  max-width: 900px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.city-section:nth-child(even) .city-content {
-  margin-left: auto;
-  text-align: right;
-}
-
-/* Ho Chi Minh specific layout */
-.city-section:nth-child(4) .city-content {
-  display: grid;
-  grid-template-columns: 400px 1fr;
-  gap: 4rem;
-  align-items: start;
-  max-width: 1000px;
-}
-
-.city-section:nth-child(4) .luma-calendar-section {
-  position: relative;
-  left: -150px;
-}
-
-.city-section:nth-child(4) .city-info {
-  display: flex;
-  flex-direction: column;
-}
-
-/* Bali specific layout */
-.city-section:nth-child(1) .city-content {
-  display: grid;
-  grid-template-columns: 1fr 350px;
-  gap: 4rem;
-  align-items: start;
-  max-width: 1000px;
-}
-
-.city-section:nth-child(1) .luma-register-section {
-  position: relative;
-  right: -50px;
-}
-
-.city-section:nth-child(1) .city-info {
-  display: flex;
-  flex-direction: column;
-}
-
-.city-section h3 {
-  font-family: "Creepster", cursive;
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  color: var(--orange);
-}
-
-.city-section h4 {
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
-  color: var(--beige);
-}
-
-.event-list {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  padding: 2rem;
-  border-radius: 15px;
-  margin-bottom: 1.5rem;
-}
-
-.event-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.event-item:last-child {
-  border-bottom: none;
-}
-
-.event-date {
-  font-weight: 600;
-  color: var(--orange);
-  min-width: 120px;
-}
-
-.side-events {
-  background: rgba(231, 177, 85, 0.2);
-  padding: 1.5rem;
-  border-radius: 15px;
-  border-left: 4px solid var(--orange);
-}
-
-.side-events h5 {
-  color: var(--orange);
-  margin-bottom: 1rem;
-  font-size: 1.2rem;
-}
-
-/* Luma Calendar Embed */
-.luma-calendar-section {
-  margin-top: 0;
-  width: 100%;
-}
-
-.luma-calendar-section h5 {
-  text-align: left;
-}
-
-.luma-iframe {
-  width: 100%;
-  height: 450px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 15px;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-}
-
-/* Luma Registration Section */
-.luma-register-section {
-  margin-top: 0;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.luma-register-section h5 {
-  text-align: center;
-  margin-bottom: 1.5rem;
-}
-
-.luma-checkout--button {
-  background: var(--orange) !important;
-  color: var(--dark-brown) !important;
-  padding: 1rem 2rem !important;
-  border-radius: 50px !important;
-  text-decoration: none !important;
-  font-weight: 600 !important;
-  font-size: 1.1rem !important;
-  border: none !important;
-  cursor: pointer !important;
-  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
-  display: inline-block !important;
-  font-family: "Poppins", sans-serif !important;
-}
-
-.luma-checkout--button:hover {
-  transform: translateY(-2px) !important;
-  box-shadow: 0 8px 25px rgba(231, 177, 85, 0.4) !important;
-}
-
-/* Footer */
-footer {
-  background: var(--dark-brown);
-  color: var(--light-beige);
-  text-align: center;
-  padding: 3rem 0;
-}
-
-.footer-content {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-bottom: 2rem;
-}
-
-.footer-section h4 {
-  color: var(--orange);
-  margin-bottom: 1rem;
-}
-
-/* Responsive Design */
+/* Enhanced Mobile Responsiveness */
 @media (max-width: 768px) {
-  .hero-content h1 {
-    font-size: 2.5rem;
+  html,
+  body {
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 100%;
+    height: 100%;
+    position: relative;
   }
 
-  .hero-content p {
-    font-size: 1.2rem;
+  .container {
+    padding: 0 15px;
+    width: 100%;
+    max-width: 100%;
   }
 
   .nav-links {
     display: none;
   }
 
-  .city-section h3 {
+  .hero {
+    margin-top: 60px;
+    padding: 1rem;
+    height: calc(100vh - 60px);
+    min-height: calc(100vh - 60px);
+    max-height: calc(100vh - 60px);
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .hero-date {
+    margin-bottom: 1rem;
     font-size: 2rem;
   }
 
-  .city-content {
-    padding: 2rem;
+  .hero-text {
+    margin-top: 1rem;
   }
 
-  .event-item {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
+  .hero-text h1,
+  .hero-text h2 {
+    font-size: 2.2rem;
   }
 
-  .luma-iframe {
+  #cities {
+    padding: 0.5rem 0;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .carousel-container {
+    margin: 0;
+    border-radius: 15px;
     height: 400px;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
   }
 
-  .luma-calendar-section {
-    margin-top: 1rem;
+  .carousel-wrapper {
+    border-radius: 15px;
+    height: 400px;
+    width: 100%;
+    overflow: hidden;
   }
 
-  /* Stack Ho Chi Minh layout on mobile */
-  .city-section:nth-child(4) .city-content {
-    display: flex;
-    flex-direction: column;
+  .carousel-track {
+    height: 400px;
+    width: 500%;
+    overflow: hidden;
+  }
+
+  .carousel-slide {
+    height: 400px;
+    width: 20%;
+    flex: 0 0 20%;
+    overflow: hidden;
+  }
+
+  .city-section {
+    height: 400px;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .carousel-btn {
+    opacity: 0.9;
+    width: 40px;
+    height: 40px;
+  }
+
+  .carousel-btn svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .carousel-btn:active {
+    transform: translateY(-50%) scale(0.95);
+  }
+
+  .carousel-btn-prev {
+    left: 15px;
+  }
+
+  .carousel-btn-next {
+    right: 15px;
+  }
+
+  .carousel-dots {
+    bottom: 20px;
+    gap: 10px;
+  }
+
+  .carousel-dot {
+    width: 10px;
+    height: 10px;
+    padding: 10px;
+    min-width: auto;
+    min-height: auto;
+  }
+
+  .overview {
+    padding: 3rem 0;
+  }
+
+  .overview-content {
     gap: 2rem;
   }
+}
 
-  /* Stack Bali layout on mobile */
-  .city-section:nth-child(1) .city-content {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+@media (max-width: 480px) {
+  html,
+  body {
+    overflow-x: hidden;
+    width: 100%;
+    height: 100%;
   }
 
-  .city-section:nth-child(1) .luma-register-section {
-    right: 0;
-    margin-top: 1rem;
+  .container {
+    padding: 0 10px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  header {
+    padding: 0.75rem 0;
+    width: 100%;
+  }
+
+  .hero {
+    margin-top: 55px;
+    padding: 1rem 0.75rem;
+    height: calc(100vh - 55px);
+    min-height: calc(100vh - 55px);
+    max-height: calc(100vh - 55px);
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .hero-date {
+    font-size: 1.8rem;
+  }
+
+  .hero-text h1,
+  .hero-text h2 {
+    font-size: 2rem;
+  }
+
+  #cities {
+    padding: 0.25rem 0;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .carousel-container {
+    height: 350px;
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .carousel-wrapper {
+    height: 350px;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .carousel-track {
+    height: 350px;
+    width: 500%;
+    overflow: hidden;
+  }
+
+  .carousel-slide {
+    height: 350px;
+    width: 20%;
+    flex: 0 0 20%;
+    overflow: hidden;
+  }
+
+  .city-section {
+    height: 350px;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .carousel-btn {
+    width: 35px;
+    height: 35px;
+  }
+
+  .carousel-btn svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .carousel-btn-prev {
+    left: 10px;
+  }
+
+  .carousel-btn-next {
+    right: 10px;
+  }
+
+  .overview-content {
+    grid-template-columns: 1fr;
+  }
+
+  .overview-card {
+    padding: 1.5rem;
+  }
+}
+
+/* Landscape mobile orientation */
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero {
+    min-height: 100vh;
+    padding: 1rem 0.5rem;
+  }
+
+  .hero-date {
+    font-size: clamp(1.2rem, 5vw, 2.5rem);
+  }
+
+  .hero-text h1,
+  .hero-text h2 {
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
+  }
+
+  .carousel-container {
+    height: clamp(300px, 50vh, 500px);
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .hero::before,
+  .hero {
+    background-image: url("/assets/hero.jpg");
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .carousel-track {
+    transition: none;
+  }
+
+  .carousel-btn,
+  .carousel-dot,
+  .overview-card,
+  .cta-button {
+    transition: none;
+  }
+
+  .hero::before {
+    filter: none;
+  }
+}
+
+/* Intermediate breakpoints for better scaling */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    padding: 0 30px;
+  }
+
+  .carousel-container {
+    height: clamp(500px, 55vh, 600px);
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .carousel-container {
+    height: clamp(600px, 60vh, 700px);
+  }
+}
+
+/* Ultra-wide screen support */
+@media (min-width: 1441px) {
+  .container {
+    max-width: 1400px;
+  }
+
+  .carousel-container {
+    max-width: 1400px;
   }
 }

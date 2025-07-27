@@ -12,243 +12,363 @@
       href="https://fonts.googleapis.com/css2?family=Creepster&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header>
       <nav class="container">
         <div class="logo">Superteam APAC</div>
-        <ul class="nav-links">
-          <li><a href="#overview">Overview</a></li>
-          <li><a href="#cities">Cities</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
       </nav>
     </header>
 
-    <section class="hero"></section>
+    <section class="hero">
+      <div class="hero-date">
+        <div>AUGUST 14TH - SEPTEMBER 30TH</div>
+      </div>
 
-    <section class="overview" id="overview">
-      <div class="container">
-        <h2>APAC Startup Village Season</h2>
-        <p
-          style="
-            text-align: center;
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto;
-          "
-        >
-          Experience the future of blockchain innovation across Asia. From
-          August 15th to September 30th, join us for an incredible journey
-          through five major cities, powered by Solana.
-        </p>
+      <div id="cities">
+        <div class="container">
+          <div class="carousel-container">
+            <div class="carousel-wrapper">
+              <div class="carousel-track">
+                <!-- Bali Section -->
+                <div class="city-section carousel-slide">
+                  <a
+                    href="https://lu.ma/pwtjf547"
+                    target="_blank"
+                    class="city-link"
+                    aria-label="View Bali event details"
+                  ></a>
+                  <div class="city-bg bali-image-bg"></div>
+                  <div class="city-logo indo-flag"></div>
+                  <div class="city-content">
+                    <!-- Clickable overlay for Bali -->
+                  </div>
+                </div>
 
-        <div class="overview-content">
-          <div class="overview-card">
-            <h3>🌏 5 Cities</h3>
-            <p>
-              Bali, Tokyo, Seoul, Ho Chi Minh City, and Singapore - each
-              offering unique perspectives on the Asian startup ecosystem.
-            </p>
-          </div>
-          <div class="overview-card">
-            <h3>🚀 Multiple Events</h3>
-            <p>
-              Startup Villages, major conferences, and exclusive networking
-              opportunities throughout the region.
-            </p>
-          </div>
-          <div class="overview-card">
-            <h3>⚡ Powered by Solana</h3>
-            <p>
-              Experience the fastest-growing blockchain ecosystem and connect
-              with the future of decentralized applications.
-            </p>
+                <!-- Tokyo Section -->
+                <div class="city-section carousel-slide">
+                  <a
+                    href="https://lu.ma/startupvillage2025-guest"
+                    target="_blank"
+                    class="city-link"
+                    aria-label="View Tokyo event details"
+                  ></a>
+                  <div class="city-bg tokyo-image-bg"></div>
+                  <div class="city-logo japan-flag"></div>
+                  <div class="city-content">
+                    <!-- Clickable overlay for Tokyo -->
+                  </div>
+                </div>
+
+                <!-- Seoul Section -->
+                <div class="city-section carousel-slide">
+                  <a
+                    href="https://lu.ma/xc0njo8j"
+                    target="_blank"
+                    class="city-link"
+                    aria-label="View Seoul event details"
+                  ></a>
+                  <div class="city-bg seoul-image-bg"></div>
+                  <div class="city-logo korea-flag"></div>
+                  <div class="city-content">
+                    <!-- Clickable overlay for Seoul -->
+                  </div>
+                </div>
+
+                <!-- Ho Chi Minh City Section -->
+                <div class="city-section carousel-slide">
+                  <a
+                    href="https://lu.ma/2mks7z2i"
+                    target="_blank"
+                    class="city-link"
+                    aria-label="View Ho Chi Minh City event details"
+                  ></a>
+                  <div class="city-bg hcm-image-bg"></div>
+                  <div class="city-logo vn-flag"></div>
+                  <div class="city-content">
+                    <!-- Clickable overlay for Ho Chi Minh City -->
+                  </div>
+                </div>
+
+                <!-- Singapore Section -->
+                <div class="city-section carousel-slide">
+                  <a
+                    href="https://lu.ma/startup_village_sg"
+                    target="_blank"
+                    class="city-link"
+                    aria-label="View Singapore event details"
+                  ></a>
+                  <div class="city-bg singapore-image-bg"></div>
+                  <div class="city-logo sg-flag"></div>
+                  <div class="city-content">
+                    <!-- Clickable overlay for Singapore -->
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Navigation Controls -->
+            <button
+              class="carousel-btn carousel-btn-prev"
+              aria-label="Previous city"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M15 18L9 12L15 6"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+            <button
+              class="carousel-btn carousel-btn-next"
+              aria-label="Next city"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9 18L15 12L9 6"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+
+            <!-- Dots Navigation -->
+            <div class="carousel-dots">
+              <button
+                class="carousel-dot active"
+                data-slide="0"
+                aria-label="Go to Bali"
+              ></button>
+              <button
+                class="carousel-dot"
+                data-slide="1"
+                aria-label="Go to Tokyo"
+              ></button>
+              <button
+                class="carousel-dot"
+                data-slide="2"
+                aria-label="Go to Seoul"
+              ></button>
+              <button
+                class="carousel-dot"
+                data-slide="3"
+                aria-label="Go to Ho Chi Minh"
+              ></button>
+              <button
+                class="carousel-dot"
+                data-slide="4"
+                aria-label="Go to Singapore"
+              ></button>
+            </div>
           </div>
         </div>
+      </div>
+
+      <div class="hero-text">
+        <h1>SUPERTEAM APAC</h1>
+        <h2>STARTUP VILLAGE SZN</h2>
       </div>
     </section>
-
-    <section id="cities">
-      <div class="container">
-        <!-- Bali Section -->
-        <div class="city-section">
-          <div class="city-bg bali-image-bg"></div>
-          <div class="city-content">
-            <div class="city-info">
-              <h3>Bali</h3>
-              <h4>Indonesia</h4>
-              <div class="event-list">
-                <div class="event-item">
-                  <span class="event-date">Aug 14-20</span>
-                  <span>Superteam Indonesia Startup Village</span>
-                </div>
-              </div>
-              <div class="side-events">
-                <h5>Major Side Event</h5>
-                <div class="event-item">
-                  <span class="event-date">Aug 21-22</span>
-                  <span>Coinfest Asia 2025</span>
-                </div>
-              </div>
-            </div>
-            <div class="luma-register-section">
-              <h5
-                style="
-                  color: var(--orange);
-                  margin-bottom: 1rem;
-                  font-size: 1.2rem;
-                "
-              >
-                Event Registration
-              </h5>
-              <a
-                href="https://lu.ma/event/evt-hx49MjM8Cadc9YH"
-                class="luma-checkout--button"
-                data-luma-action="checkout"
-                data-luma-event-id="evt-hx49MjM8Cadc9YH"
-              >
-                Register for Event
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Tokyo Section -->
-        <div class="city-section">
-          <div class="city-bg tokyo-image-bg"></div>
-          <div class="city-content">
-            <h3>Tokyo</h3>
-            <h4>Japan</h4>
-            <div class="event-list">
-              <div class="event-item">
-                <span class="event-date">Aug 18-29</span>
-                <span>Superteam Japan Startup Village</span>
-              </div>
-            </div>
-            <div class="side-events">
-              <h5>Major Side Events</h5>
-              <div class="event-item">
-                <span class="event-date">Aug 24</span>
-                <span>SuperTokyo</span>
-              </div>
-              <div class="event-item">
-                <span class="event-date">Aug 25-26</span>
-                <span>WebX</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Seoul Section -->
-        <div class="city-section">
-          <div class="city-bg seoul-image-bg"></div>
-          <div class="city-content">
-            <h3>Seoul</h3>
-            <h4>Korea</h4>
-            <div class="event-list">
-              <div class="event-item">
-                <span class="event-date">Sep 14-20</span>
-                <span>Superteam Korea Startup Village</span>
-              </div>
-            </div>
-            <div class="side-events">
-              <h5>Major Side Event</h5>
-              <div class="event-item">
-                <span class="event-date">Sep 23-24</span>
-                <span>Korea Blockchain Week</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Ho Chi Minh City Section -->
-        <div class="city-section">
-          <div class="city-bg hcm-image-bg"></div>
-          <div class="city-content">
-            <div class="luma-calendar-section">
-              <h5
-                style="
-                  color: var(--orange);
-                  margin-bottom: 1rem;
-                  font-size: 1.2rem;
-                "
-              >
-                Event Calendar
-              </h5>
-              <iframe
-                src="https://lu.ma/embed/calendar/cal-9edNfCvrI4ZfYfA/events"
-                class="luma-iframe"
-                frameborder="0"
-                allowfullscreen=""
-                aria-hidden="false"
-                tabindex="0"
-              ></iframe>
-            </div>
-            <div class="city-info">
-              <h3>Ho Chi Minh</h3>
-              <h4>Vietnam</h4>
-              <div class="event-list">
-                <div class="event-item">
-                  <span class="event-date">Sep 22-28</span>
-                  <span>Startup Village Vietnam</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Singapore Section -->
-        <div class="city-section">
-          <div class="city-bg singapore-image-bg"></div>
-          <div class="city-content">
-            <h3>Singapore</h3>
-            <h4>Singapore</h4>
-            <div class="event-list">
-              <div class="event-item">
-                <span class="event-date">Sep 18-29</span>
-                <span>Singapore Startup Village / Ignition S4</span>
-              </div>
-            </div>
-            <div class="side-events">
-              <h5>Major Side Event</h5>
-              <div class="event-item">
-                <span class="event-date">Sep 30</span>
-                <span>Solana Apex Singapore (Token2049)</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer id="contact">
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-section">
-            <h4>Superteam APAC</h4>
-            <p>
-              Building the future of blockchain across Asia, one startup at a
-              time.
-            </p>
-          </div>
-          <div class="footer-section">
-            <h4>Event Dates</h4>
-            <p>August 15th - September 30th, 2025</p>
-          </div>
-          <div class="footer-section">
-            <h4>Powered By</h4>
-            <p>Solana Blockchain</p>
-          </div>
-        </div>
-        <p>&copy; 2025 Superteam APAC. All rights reserved.</p>
-      </div>
-    </footer>
 
     <script
       id="luma-checkout"
       src="https://embed.lu.ma/checkout-button.js"
     ></script>
+
+    <script>
+      // Enhanced Carousel functionality with improved mobile support
+      class CityCarousel {
+        constructor() {
+          this.track = document.querySelector(".carousel-track");
+          this.slides = document.querySelectorAll(".carousel-slide");
+          this.dots = document.querySelectorAll(".carousel-dot");
+          this.prevBtn = document.querySelector(".carousel-btn-prev");
+          this.nextBtn = document.querySelector(".carousel-btn-next");
+          this.currentSlide = 0;
+          this.totalSlides = this.slides.length;
+          this.isTransitioning = false;
+
+          this.init();
+        }
+
+        init() {
+          // Add event listeners
+          this.prevBtn.addEventListener("click", () => this.prevSlide());
+          this.nextBtn.addEventListener("click", () => this.nextSlide());
+
+          this.dots.forEach((dot, index) => {
+            dot.addEventListener("click", () => this.goToSlide(index));
+          });
+
+          // Enhanced touch/swipe support
+          let startX = 0;
+          let endX = 0;
+          let isDragging = false;
+
+          this.track.addEventListener(
+            "touchstart",
+            (e) => {
+              // Don't interfere with links
+              if (e.target.closest(".city-link")) return;
+              startX = e.touches[0].clientX;
+              isDragging = true;
+            },
+            { passive: true }
+          );
+
+          this.track.addEventListener(
+            "touchmove",
+            (e) => {
+              if (!isDragging) return;
+              endX = e.touches[0].clientX;
+            },
+            { passive: true }
+          );
+
+          this.track.addEventListener(
+            "touchend",
+            (e) => {
+              if (!isDragging) return;
+              isDragging = false;
+
+              const diff = startX - endX;
+              const minSwipeDistance = 50;
+
+              if (Math.abs(diff) > minSwipeDistance) {
+                if (diff > 0) {
+                  this.nextSlide();
+                } else {
+                  this.prevSlide();
+                }
+              }
+            },
+            { passive: true }
+          );
+
+          // Mouse drag support for desktop
+          let mouseStartX = 0;
+          let isMouseDragging = false;
+
+          this.track.addEventListener("mousedown", (e) => {
+            // Don't interfere with links
+            if (e.target.closest(".city-link")) return;
+            mouseStartX = e.clientX;
+            isMouseDragging = true;
+            this.track.style.cursor = "grabbing";
+          });
+
+          document.addEventListener("mousemove", (e) => {
+            if (!isMouseDragging) return;
+            e.preventDefault();
+          });
+
+          document.addEventListener("mouseup", (e) => {
+            if (!isMouseDragging) return;
+            isMouseDragging = false;
+            this.track.style.cursor = "grab";
+
+            const diff = mouseStartX - e.clientX;
+            const minDragDistance = 50;
+
+            if (Math.abs(diff) > minDragDistance) {
+              if (diff > 0) {
+                this.nextSlide();
+              } else {
+                this.prevSlide();
+              }
+            }
+          });
+
+          // Keyboard navigation
+          document.addEventListener("keydown", (e) => {
+            if (e.key === "ArrowLeft") {
+              e.preventDefault();
+              this.prevSlide();
+            }
+            if (e.key === "ArrowRight") {
+              e.preventDefault();
+              this.nextSlide();
+            }
+          });
+
+          // Removed auto-play functionality - carousel is now manual only
+        }
+
+        updateCarousel() {
+          if (this.isTransitioning) return;
+
+          this.isTransitioning = true;
+          const translateX = -this.currentSlide * 20; // 20% per slide
+          this.track.style.transform = `translateX(${translateX}%)`;
+
+          // Update dots
+          this.dots.forEach((dot, index) => {
+            dot.classList.toggle("active", index === this.currentSlide);
+          });
+
+          // Reset transition flag after animation
+          setTimeout(() => {
+            this.isTransitioning = false;
+          }, 500);
+        }
+
+        nextSlide() {
+          if (this.isTransitioning) return;
+          this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
+          this.updateCarousel();
+        }
+
+        prevSlide() {
+          if (this.isTransitioning) return;
+          this.currentSlide =
+            (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
+          this.updateCarousel();
+        }
+
+        goToSlide(index) {
+          if (this.isTransitioning || index === this.currentSlide) return;
+          this.currentSlide = index;
+          this.updateCarousel();
+        }
+      }
+
+      // Initialize carousel when DOM is loaded
+      document.addEventListener("DOMContentLoaded", () => {
+        new CityCarousel();
+      });
+
+      // Handle orientation changes
+      window.addEventListener("orientationchange", () => {
+        setTimeout(() => {
+          // Force a repaint to handle orientation change issues
+          const carousel = document.querySelector(".carousel-container");
+          if (carousel) {
+            carousel.style.height = getComputedStyle(carousel).height;
+          }
+        }, 100);
+      });
+    </script>
   </body>
 </html>
